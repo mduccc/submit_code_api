@@ -16,18 +16,15 @@ class VerifySecretKey extends Connect
         $sql = "SELECT *
                 FROM customer, secret_key 
                 WHERE customer.customer_id = secret_key.customer_id
-                AND customer.domain = $domain
-                AND secret_key.key_content = $key
+                AND customer.domain = '$domain'
+                AND secret_key.key_content = '$key'
                 AND secret_key.expired IS NULL";
 
         $query = $this->con->query($sql);
 
-        if ($query) {
-            if ($query->num_rows == 1)
-                return true;
-            else
-                return false;
-        } else
+        if ($query->num_rows == 1)
+            return true;
+        else
             return false;
     }
 

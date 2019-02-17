@@ -15,7 +15,8 @@ class Connect
     {
         mysqli_report(MYSQLI_REPORT_STRICT);
         try {
-            $this->con = new mysqli('localhost', 'root', '', 'submit_code_customer');
+            require_once '../config.php';
+            $this->con = new mysqli($host, $username, $password, $database);
         } catch (Exception $e) {
             echo $e;
         }

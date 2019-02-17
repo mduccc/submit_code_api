@@ -15,17 +15,14 @@ class GenerateKey extends Connect
         $sql = "SELECT *
                 FROM customer, secret_key 
                 WHERE customer.customer_id = secret_key.customer_id
-                AND secret_key.key_content = $key";
+                AND secret_key.key_content = '$key'";
 
         $query = $this->con->query($sql);
 
-        if ($query) {
-            if ($query->num_rows >= 1)
-                return false;
-            else
-                return true;
-        } else
-            return -1;
+        if ($query->num_rows >= 1)
+            return false;
+        else
+            return true;
     }
 
     function random()
@@ -43,11 +40,9 @@ class GenerateKey extends Connect
     function generate()
     {
         $key = $this->random();
+        $isExits = $this->isExits($key);
 
-        if ($key == -1)
-            return null;
-
-        if ($key == false)
+        if ($isExits == false)
             $this->generate();
         else
             return $key;
