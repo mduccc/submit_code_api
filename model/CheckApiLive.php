@@ -8,11 +8,11 @@
 
 class CheckApiLive
 {
-    const api_url = 'https://api.judge0.com';
+    private $api_url = 'https://api.judge0.com';
 
     function isLive()
     {
-        $ch = curl_init(api_url);
+        $ch = curl_init($this->api_url);
         curl_setopt($ch, CURLOPT_HEADER  , false);
         curl_setopt($ch, CURLOPT_NOBODY  , true);
         $response = trim(curl_exec($ch));
