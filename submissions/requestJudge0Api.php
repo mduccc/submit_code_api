@@ -55,10 +55,9 @@ if (isset($_POST['stdin']) && isset($_POST['expected_output']) && isset($_POST['
     $verified = $verifySecretKey->verify($key, $domain);
 
     if ($verified == false) {
-        echo '{"verified": false}';
+        echo '{"activated": false}';
         exit();
     }
-
 
     switch ($lang_id) {
         case 26:
