@@ -37,11 +37,11 @@ const Runtime_Error_NZEC = 11;
 const Runtime_Error_Other = 12;
 const Internal_Error = 13;
 
-if (isset($_POST['stdin']) && isset($_POST['expected_output']) && $_POST['source'] && $_POST['lang_id']
-    && isset($_POST['domain']) && isset($_POST['key'])) {
+if (isset($_POST['stdin']) && isset($_POST['expected_output']) && isset($_POST['source']) && isset($_POST['lang_id'])
+    && isset($_POST['domain']) && isset($_POST['secret_key'])) {
 
-    $domain = isset($_POST['domain']);
-    $key = isset($_POST['key']);
+    $domain = $_POST['domain'];
+    $key = $_POST['secret_key'];
 
     $stdin = $_POST['stdin'];
     $expected_output = $_POST['expected_output'];
@@ -54,8 +54,10 @@ if (isset($_POST['stdin']) && isset($_POST['expected_output']) && $_POST['source
     $verifySecretKey = new VerifySecretKey();
     $verified = $verifySecretKey->verify($key, $domain);
 
-    if ($verified == false)
+    if ($verified == false) {
+        echo '{"verified": false}';
         exit();
+    }
 
 
     switch ($lang_id) {
