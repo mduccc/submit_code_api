@@ -11,7 +11,8 @@ require_once 'Connect.php';
 class GenerateKey extends Connect
 {
 
-    function isExits($key) {
+    function isExits($key)
+    {
         $sql = "SELECT *
                 FROM customer, secret_key 
                 WHERE customer.customer_id = secret_key.customer_id

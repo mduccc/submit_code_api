@@ -12,7 +12,7 @@ class Submissions
 
     function submit($token)
     {
-        $ch = curl_init($this->url.'/'.$token.'?base64_encoded=true');
+        $ch = curl_init($this->url . '/' . $token . '?base64_encoded=true');
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 

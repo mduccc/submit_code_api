@@ -13,8 +13,8 @@ class CheckApiLive
     function isLive()
     {
         $ch = curl_init($this->api_url);
-        curl_setopt($ch, CURLOPT_HEADER  , false);
-        curl_setopt($ch, CURLOPT_NOBODY  , true);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_NOBODY, true);
         $response = trim(curl_exec($ch));
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 

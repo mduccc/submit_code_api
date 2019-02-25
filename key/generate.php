@@ -8,7 +8,8 @@
 
 header('Content-Type: application/json; charset=UTF-8');
 
-class Key {
+class Key
+{
     public $key;
 }
 
