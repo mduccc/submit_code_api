@@ -18,7 +18,7 @@ if (isset($_GET['secret_key']) && isset($_GET['domain'])) {
     $verify = $verifySecretKey->verify($key, $domain);
 
     if ($verify)
-        echo '{activated: true}';
+        echo '{"activated": true}';
     else
-        echo '{activated: false}';
+        echo '{"activated": false}';
 }

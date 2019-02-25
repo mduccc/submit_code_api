@@ -49,7 +49,6 @@ if (isset($_POST['stdin']) && isset($_POST['expected_output']) && isset($_POST['
     $lang_id = (int)$_POST['lang_id'];
     $cpu_time_limit = 5; // default is 2 second
 
-
     // Verify secret key
     $verifySecretKey = new VerifySecretKey();
     $verified = $verifySecretKey->verify($key, $domain);
