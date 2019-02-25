@@ -8,7 +8,7 @@
 
 class GetToken
 {
-    private $url = 'https://api.judge0.com/submissions?base64_encoded=true&wait=false';
+    const url = 'https://api.judge0.com/submissions?base64_encoded=true&wait=false';
 
     function get($source_code, $stdin, $expected_output, $lang_id, $cpu_time_limit) {
         $form_data = '{
@@ -19,7 +19,7 @@ class GetToken
             "cpu_time_limit": '.$cpu_time_limit.'
         }';
 
-        $ch = curl_init($this->url);
+        $ch = curl_init(url);
         curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt ($ch, CURLOPT_POSTFIELDS, $form_data);
