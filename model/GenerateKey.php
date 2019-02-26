@@ -31,9 +31,9 @@ class GenerateKey extends Connect
         $source = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $length = 256;
         $key = '';
-        for ($i = 0; $i < $length; $i++) {
+
+        for ($i = 0; $i < $length; $i++)
             $key .= $source[rand(0, strlen($source) - 1)];
-        }
 
         return $key;
     }
