@@ -21,9 +21,9 @@ class GenerateKey extends Connect
         $query = $this->con->query($sql);
 
         if ($query->num_rows >= 1)
-            return false;
-        else
             return true;
+        else
+            return false;
     }
 
     function random()
@@ -43,7 +43,7 @@ class GenerateKey extends Connect
         $key = $this->random();
         $isExits = $this->isExits($key);
 
-        if ($isExits == false)
+        if ($isExits == true)
             $this->generate();
         else
             return $key;
